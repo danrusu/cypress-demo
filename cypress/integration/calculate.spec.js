@@ -1,33 +1,29 @@
 describe('qatools.ro calculate.app test', () => {
-  it('Sum of 100 and -100 should be 0', () => {
-    //home page
+  beforeEach(() => {
     cy.visit('http://qatools.ro');
     cy.url().should('eq', 'http://qatools.ro/');
     cy.get('[href="calculate/appApi.html"]').click();
-
-    // calculate page
     cy.url().should('eq', 'http://qatools.ro/calculate/appApi.html');
     cy.title().should('eq', 'calculate.app');
-
-    cy.get('#nr1').clear().type(100);
-    cy.get('#nr2').clear().type(-100);
-    cy.get('button[name="calculate"]').click();
-    cy.get('[data-qa-test="result"]').should('have.text', '0');
   });
-  it('Division of 10 and 2 should be 5', () => {
-    //home page
-    cy.visit('http://qatools.ro');
-    cy.url().should('eq', 'http://qatools.ro/');
-    cy.get('[href="calculate/appApi.html"]').click();
 
-    // calculate page
-    cy.url().should('eq', 'http://qatools.ro/calculate/appApi.html');
-    cy.title().should('eq', 'calculate.app');
-
-    cy.get('#nr1').clear().type(1);
-    cy.get('#nr2').clear().type(50);
-    cy.get('select').select('DIVISION');
+  const calculateTest = (nr1, nr2, operation, expectedResultString) => {
+    cy.get('#nr1').clear().type(nr1);
+    cy.get('#nr2').clear().type(nr2);
+    cy.get('select').select(operation);
     cy.get('button[name="calculate"]').click();
-    cy.get('[data-qa-test="result"]').should('have.text', '0.02');
+    cy.get('[data-qa-test="result"]').should('have.text', expectedResultString);
+  };
+
+  it('Sum of 100 and -100 should be 0', () => {
+    calculateTest(100, -100, 'SUM', '0');
+  });
+
+  it('Sum of 3 and 7 should be 21', () => {
+    calculateTest(3, 7, 'MULTIPLICATION', '21');
+  });
+
+  it('Division of 10 and 2 should be 5', () => {
+    calculateTest(1, 50, 'DIVISION', '0.02');
   });
 });
