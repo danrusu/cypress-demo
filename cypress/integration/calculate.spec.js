@@ -1,4 +1,4 @@
-const calculateTest = (nr1, nr2, operation, expectedResultString) =>
+const testCalculateApp = (nr1, nr2, operation, expectedResultString) =>
   it(`${operation} result of ${nr1} and ${nr2} should be ${expectedResultString}`, () => {
     cy.get('#nr1').clear().type(nr1);
     cy.get('#nr2').clear().type(nr2);
@@ -16,7 +16,7 @@ describe('Test qatools.ro calculateApp', () => {
     cy.title().should('eq', 'calculate.app');
   });
 
-  calculateTest(100, -100, 'SUM', '0');
-  calculateTest(3, 7, 'MULTIPLICATION', '21');
-  calculateTest(1, 50, 'DIVISION', '0.02');
+  testCalculateApp(100, -100, 'SUM', '0');
+  testCalculateApp(3, 7, 'MULTIPLICATION', '21');
+  testCalculateApp(1, 50, 'DIVISION', '0.02');
 });

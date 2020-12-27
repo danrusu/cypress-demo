@@ -4,7 +4,7 @@ const OPERATIONS = {
   DIVISION: 3,
 };
 
-const calculateTest = (
+const testCalculateApp = (
   nr1,
   nr2,
   operation,
@@ -41,7 +41,7 @@ describe('Mocked backend test - qatools.ro calculateApp', () => {
     cy.title().should('eq', 'calculate.app');
   });
 
-  calculateTest(100, -100, 'SUM', '0', {
+  testCalculateApp(100, -100, 'SUM', '0', {
     statusCode: 200,
     body: {
       numbers: [100, -100],
@@ -50,11 +50,11 @@ describe('Mocked backend test - qatools.ro calculateApp', () => {
     },
   });
 
-  calculateTest(100, 100, 'SUM', '', {
+  testCalculateApp(100, 100, 'SUM', '', {
     statusCode: 500,
   });
 
-  calculateTest(100, 0, 'DIVISION', 'Cannot divide by 0', {
+  testCalculateApp(100, 0, 'DIVISION', 'Cannot divide by 0', {
     statusCode: 200,
     body: {
       numbers: [100, 0],
@@ -63,7 +63,7 @@ describe('Mocked backend test - qatools.ro calculateApp', () => {
     },
   });
 
-  calculateTest(
+  testCalculateApp(
     101,
     100,
     'DIVISION',
