@@ -1,9 +1,37 @@
 [
   {
     "nr1": 100,
-    "nr2": -100,
-    "operation": "SUM",
-    "expectedResult": "0",
+    "nr2": -20,
+    "operation": "DIVISION",
+    "expectedResult": "-5",
+    "mockedStatusCode": 200
+  },
+  {
+    "nr1": "",
+    "nr2": "200",
+    "operation": "DIVISION",
+    "expectedResult": "One number input is empty",
+    "mockedStatusCode": 200
+  },
+  {
+    "nr1": "50",
+    "nr2": "",
+    "operation": "DIVISION",
+    "expectedResult": "One number input is empty",
+    "mockedStatusCode": 200
+  },
+  {
+    "nr1": 101,
+    "nr2": 0,
+    "operation": "DIVISION",
+    "expectedResult": "Number1 or Number2 is not in specified range: [-100, 100]",
+    "mockedStatusCode": 200
+  },
+  {
+    "nr1": 50,
+    "nr2": -101,
+    "operation": "DIVISION",
+    "expectedResult": "Number1 or Number2 is not in specified range: [-100, 100]",
     "mockedStatusCode": 200
   },
   {
@@ -11,13 +39,6 @@
     "nr2": 0,
     "operation": "DIVISION",
     "expectedResult": "Cannot divide by 0",
-    "mockedStatusCode": 200
-  },
-  {
-    "nr1": 101,
-    "nr2": 100,
-    "operation": "DIVISION",
-    "expectedResult": "Number1 or Number2 is not in specified range: [-100, 100]",
     "mockedStatusCode": 200
   }
 ]

@@ -14,7 +14,7 @@ const testCalculateAppWithMockedBackend = ({
   expectedResult,
   mockedStatusCode,
 }) =>
-  it(`${operation} of ${nr1} and ${nr2} should return ${expectedResult}`, () => {
+  it(`${operation} of "${nr1}" and "${nr2}" should return "${expectedResult}"`, () => {
     intercept(nr1, nr2, operation, {
       statusCode: mockedStatusCode,
       body: { result: expectedResult },
