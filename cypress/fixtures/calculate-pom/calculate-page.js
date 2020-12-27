@@ -33,9 +33,16 @@ const calculate = (nr1, nr2, operation) => {
 
 const result = () => cy.get('[data-qa-test="result"]');
 
+const interceptAndMockResponse = (nr1, nr2, operation, mockedResponse) =>
+  cy.intercept(
+    'GET',
+    `http://qatools.ro/api/calculate.php?firstNumber=${nr1}&secondNumber=${nr2}&operation=${OPERATIONS[operation]}`,
+    mockedResponse
+  );
+
 module.exports = {
   calculate,
+  interceptAndMockResponse,
   navigateToCalculateApp,
-  OPERATIONS,
   result,
 };
