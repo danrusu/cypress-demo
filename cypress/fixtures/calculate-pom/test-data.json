@@ -1,0 +1,20 @@
+[
+  {
+    "nr1": 100,
+    "nr2": -100,
+    "operation": "SUM",
+    "expectedResult": "0"
+  },
+  {
+    "nr1": 3,
+    "nr2": 7,
+    "operation": "MULTIPLICATION",
+    "expectedResult": "21"
+  },
+  {
+    "nr1": 1,
+    "nr2": 50,
+    "operation": "DIVISION",
+    "expectedResult": "0.02"
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "nr1": 100,
+    "nr2": -100,
+    "operation": "SUM",
+    "expectedResult": "0",
+    "mockedStatusCode": 200
+  },
+  {
+    "nr1": 100,
+    "nr2": 0,
+    "operation": "DIVISION",
+    "expectedResult": "Cannot divide by 0",
+    "mockedStatusCode": 200
+  },
+  {
+    "nr1": 101,
+    "nr2": 100,
+    "operation": "DIVISION",
+    "expectedResult": "Number1 or Number2 is not in specified range: [-100, 100]",
+    "mockedStatusCode": 200
+  }
+]
