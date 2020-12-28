@@ -4,14 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "",
-    "cy:open": "cypress open"
+    "test": "node runner.js",
+    "cy:info": "cypress info",
+    "cy:open": "cypress open --browser chrome",
+    "cy:run": "cypress run --browser chrome --headless --spec \"cypress/integration/calculate-test/*.spec.js\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cypress": "^6.2.0"
+    "cypress": "^6.2.0",
+    "mocha-junit-reporter": "^2.0.0",
+    "mocha-multi-reporters": "^1.5.1"
   },
   "devDependencies": {
     "eslint-plugin-cypress": "^2.11.2"

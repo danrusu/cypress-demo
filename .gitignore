@@ -2,4 +2,8 @@ node_modules
 
 *.log
 
+
+
 cypress/integration/examples
+cypress/results
+cypress/videos

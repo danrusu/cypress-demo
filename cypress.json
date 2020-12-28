@@ -1,3 +1,9 @@
 {
-  "chromeWebSecurity": false
+  "chromeWebSecurity": false,
+
+  "reporter": "junit",
+  "reporterOptions": {
+    "mochaFile": "cypress/results/junit-report-[hash].xml",
+    "toConsole": true
+  }
 }
