@@ -7,3 +7,4 @@ node_modules
 cypress/integration/examples
 cypress/results
 cypress/videos
+cypress/screenshots

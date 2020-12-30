@@ -1,6 +1,6 @@
 const QATOOLS_PAGE_URL = 'http://qatools.ro/';
 const URL = 'http://qatools.ro/calculate/appApi.html';
-const TITLE = 'calculate.app';
+const TITLE = 'SimpleCalculator';
 
 const OPERATIONS = {
   SUM: 1,

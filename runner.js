@@ -4,7 +4,7 @@ cypress.run({
   browser: 'firefox',
   headless: false,
 
-  spec: 'cypress/integration/calculate-test/calculate.spec.js',
+  spec: 'cypress/integration/calculate-test/simple.spec.js',
 
   reporter: 'junit',
   reporterOptions: {
