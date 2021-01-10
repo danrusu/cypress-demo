@@ -1,11 +1,11 @@
-const testDataMocked = require('../../fixtures/calculate-pom/test-data-mocked.json');
+const testDataMocked = require('../../fixtures/calculate/test-data-mocked.json');
 
 const {
   interceptAndMockResponse,
   navigateToCalculateApp,
   calculate,
   result,
-} = require('../../fixtures/calculate-pom/calculate-page');
+} = require('../../support/calculate-pom/calculate-page');
 
 const testCalculateAppWithMockedBackend = ({
   nr1,

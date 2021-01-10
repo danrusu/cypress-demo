@@ -10,7 +10,7 @@
     "cy:run": "cypress run --browser chrome --headless --spec \"cypress/integration/calculate-test/*.spec.js\""
   },
   "keywords": [],
-  "author": "",
+  "author": "qatools.ro",
   "license": "ISC",
   "dependencies": {
     "cypress": "^6.2.0",
