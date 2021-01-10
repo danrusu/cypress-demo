@@ -2,20 +2,21 @@ const {
   navigateToCalculateApp,
   calculate,
   result,
+  OPERATIONS,
 } = require('../../support/calculate-pom/calculate-page');
 
 // retry all tests in suite once
-describe('Data-driven test - qatools.ro calculateApp', { retries: 1 }, () => {
+describe('Fixture demo test - qatools.ro calculateApp', { retries: 1 }, () => {
   beforeEach(() => {
     navigateToCalculateApp();
     cy.fixture('calculate/test-data.json').as('testData');
 
     cy.intercept({
       method: 'GET',
-      url: 'calculate.php',
+      url: /calculate.php.*firstNumber.*secondNumber.*operation.*/,
     }).as('calculateApi');
     // or
-    //cy.intercept('calculate.php').as('calculateApi');
+    //cy.intercept(/calculate.php.*firstNumber.*secondNumber.*operation.*/).as('calculateApi');
   });
 
   // retry 2 additional times (3 total tries)
@@ -31,8 +32,8 @@ describe('Data-driven test - qatools.ro calculateApp', { retries: 1 }, () => {
         }).then(calculateApi => {
           //console.log(JSON.stringify(intercepted, null, 2));
           expect(calculateApi.response.body).deep.equals({
-            numbers: ['' + nr1, '' + nr2],
-            operation: '1',
+            numbers: [`${nr1}`, `${nr2}`],
+            operation: `${OPERATIONS[operation]}`,
             result: expectedResult,
           });
         });
