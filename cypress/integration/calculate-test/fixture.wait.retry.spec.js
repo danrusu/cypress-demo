@@ -27,8 +27,8 @@ describe('Fixture demo test - qatools.ro calculateApp', { retries: 1 }, () => {
 
         cy.wait('@calculateApi', {
           // using cy in then is an anti-pattern??? alternative???
-          requestTimeout: 500,
-          responseTimeout: 2000, // 1 second delay is implemented in backend
+          requestTimeout: 500, // 500 milliseconds delay implemented in front-end
+          responseTimeout: 2000, // 1 second delay is implemented in back-end
         }).then(calculateApi => {
           //console.log(JSON.stringify(intercepted, null, 2));
           expect(calculateApi.response.body).deep.equals({
