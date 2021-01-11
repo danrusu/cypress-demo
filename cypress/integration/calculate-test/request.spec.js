@@ -1,5 +1,5 @@
 describe('Request validation', { retries: 1 }, () => {
-  it.only('Request', () => {
+  it('Request', () => {
     const expectedResult = {
       name: 'Porsche',
       model: '718 Cayman',
