@@ -9,9 +9,9 @@ Environment variables (bottom to top overriding)
 - custom suite/test env
  */
 describe('Misc', { retries: 1, env: { SUITE_ENV_VAL: 100 } }, () => {
-  it('test1', () => console.log(JSON.stringify(Cypress.env(), null, 2)));
+  it('Env vars1', () => console.log(JSON.stringify(Cypress.env(), null, 2)));
   it(
-    'test2',
+    'Env vars2',
     {
       env: {
         TEST_URL: 'http://qatools.ro/calculate',
