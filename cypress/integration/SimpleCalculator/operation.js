@@ -18,9 +18,9 @@ And(`User presses the CALCULATE button`, () =>
 );
 
 function typeToInput(inputSelector, number) {
-  const input = cy.get(inputSelector).clear();
+  cy.get(inputSelector).clear();
   // cypress cannot type '' to input fields
   if (number !== '') {
-    input.type(number);
+    cy.get(inputSelector).type(number);
   }
 }
