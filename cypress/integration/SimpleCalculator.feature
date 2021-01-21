@@ -1,7 +1,10 @@
 Feature: SimpleCalculator
 
-  Scenario Outline: MULTIPLICATION
+  #BeforeEachScenario
+  Background: Navigate to SimpleCalculator
     Given User is on Simple Calculator page
+
+  Scenario Outline: MULTIPLICATION
     When User types "<number1>" in Number1 input
     And User types "<number2>" in Number2 input
     And User selects "<operation>" operation from dropdown
@@ -15,9 +18,8 @@ Feature: SimpleCalculator
       | 100     |         | MULTIPLICATION | One number input is empty |
       |         | 100     | MULTIPLICATION | One number input is empty |
 
-  #@focus
+  @focus
   Scenario Outline: DIVISION
-    Given User is on Simple Calculator page
     When User types "<number1>" in Number1 input
     And User types "<number2>" in Number2 input
     And User selects "<operation>" operation from dropdown
