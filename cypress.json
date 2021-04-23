@@ -6,5 +6,5 @@
     "mochaFile": "cypress/results/junit-report-[hash].xml",
     "toConsole": true
   },
-  "testFiles": "**/*.{feature,features}"
+  "testFiles": "**/*.{feature,features,js}"
 }

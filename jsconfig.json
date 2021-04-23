@@ -1,6 +1,7 @@
 {
   "include": [
     "./node_modules/cypress",
-    "cypress/**/*.js"
-, "runner.js", "cypress/integration/google.feature"  ]
+    "cypress/**/*.js", 
+    "runner.js", "cypress/integration/google.feature"  
+  ]
 }
