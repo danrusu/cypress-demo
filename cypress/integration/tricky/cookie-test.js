@@ -22,6 +22,6 @@ describe('Cookie test', () => {
 
     waitForCookie('id', 2000);
 
-    cy.getCookie('id').should('have.property', 'value', '1111');
+    cy.getCookie(cookieName).should('have.property', 'value', '1111');
   });
 });
