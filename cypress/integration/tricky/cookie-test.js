@@ -17,7 +17,7 @@ describe('Cookie test', () => {
         });
       };
       wait();
-      cy.getCookie('id').should('exist');
+      cy.getCookie(cookieName).should('exist');
     };
 
     waitForCookie('id', 2000);
