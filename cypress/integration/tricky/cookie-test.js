@@ -1,10 +1,12 @@
 describe('Cookie test', () => {
-  
   it('Wait for cookie', () => {
-    cy.visit('http://qatools.ro/cookie');
+    cy.visit('http://qatools.ro/xcookie');
+    cy.location('pathname').should('eq', '/demo/cookie.html');
 
     const waitForCookie = (cookieName, timeout) => {
-      cy.log(`Wait ${timeout} seconds for cookie '${cookieName}' to exist`);
+      cy.log(
+        `Wait ${timeout / 1000} seconds for cookie '${cookieName}' to exist`
+      );
       let count = 0;
       const wait = options => {
         cy.getCookie(cookieName, options).then(cookie => {
@@ -20,7 +22,7 @@ describe('Cookie test', () => {
       cy.getCookie(cookieName).should('exist');
     };
 
-    waitForCookie('id', 2000);
+    waitForCookie('id', 2500);
 
     cy.getCookie('id').should('have.property', 'value', '1111');
   });
