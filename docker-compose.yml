@@ -1,0 +1,36 @@
+version: '3.9'
+services:
+  e2e_1:
+    image: demo
+    container_name: cypress1
+    command: --spec "cypress/integration/tricky/wait.js" --env "viewport=mobile"
+    volumes:
+      - ./cypress/results:/opt/cypress-demo/cypress/results
+
+  e2e_2:
+    image: demo
+    container_name: cypress2
+    command: --spec "cypress/integration/tricky/fail.js"
+    volumes:
+      - ./cypress/results:/opt/cypress-demo/cypress/results
+
+  e2e_3:
+    image: demo
+    container_name: cypress3
+    command: --spec "cypress/integration/tricky/fail.js"
+    volumes:
+      - ./cypress/results:/opt/cypress-demo/cypress/results
+
+  e2e_4:
+    image: demo
+    container_name: cypress4
+    command: --spec "cypress/integration/tricky/wait.js"
+    volumes:
+      - ./cypress/results:/opt/cypress-demo/cypress/results
+
+  e2e_5:
+    image: demo
+    container_name: cypress5
+    command: --spec "cypress/integration/tricky/wait.js"
+    volumes:
+      - ./cypress/results:/opt/cypress-demo/cypress/results

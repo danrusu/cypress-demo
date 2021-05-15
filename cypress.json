@@ -1,10 +1,13 @@
 {
   "chromeWebSecurity": false,
 
+  "video": false,
+
   "reporter": "junit",
   "reporterOptions": {
     "mochaFile": "cypress/results/junit-report-[hash].xml",
     "toConsole": true
   },
+
   "testFiles": "**/*.{feature,features,js}"
 }
