@@ -14,8 +14,6 @@ RUN npm install \
 
 ENTRYPOINT [ "node_modules/.bin/cypress", \
   "run", \
-  "--spec", \ 
-  "cypress/integration/tricky/cookie-test.js", \
   "--headless", \
   "--browser", \
   "chrome", \
