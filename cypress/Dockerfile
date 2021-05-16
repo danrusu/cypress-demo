@@ -9,7 +9,7 @@ RUN npm install \
   cypress@7.3.0 \
   cypress-cucumber-preprocessor@4.1.0 \
   mocha@8.4.0 \
-  mocha-multi-reporters@1.5.1 \
+  mocha-junit-reporter@2.0.0 \
   -S
 
 ENTRYPOINT [ "node_modules/.bin/cypress", \
@@ -19,4 +19,4 @@ ENTRYPOINT [ "node_modules/.bin/cypress", \
   "chrome", \
   "--env", \
   "baseUrl=http://qatools.ro,env=desktop" \
-]
+  ]

@@ -12,6 +12,6 @@ npm run cy:open
 #### Parallel tests demo
 
 ```bash
-docker build -t demo .
-docker-compose up
+docker-compose build
+docker-compose -f cypress/docker-compose.yml up
 ```
