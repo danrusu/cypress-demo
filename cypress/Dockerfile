@@ -18,5 +18,5 @@ ENTRYPOINT [ "node_modules/.bin/cypress", \
   "--browser", \
   "chrome", \
   "--env", \
-  "baseUrl=http://qatools.ro,env=desktop" \
+  "baseUrl=http://qatools.ro,viewport=desktop" \
   ]
