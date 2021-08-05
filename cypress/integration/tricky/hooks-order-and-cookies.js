@@ -8,6 +8,7 @@ const log = message => {
 }
 
 // console log for cookies changes
+// https://docs.cypress.io/api/cypress-api/cookies#Debug
 Cypress.Cookies.debug(true);
 
 // Cookies are reset before each test (it)!
