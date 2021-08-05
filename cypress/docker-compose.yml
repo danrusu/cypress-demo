@@ -1,11 +1,15 @@
 version: "3.9"
 services:
   e2e_1:
-    image: cypress-demo
+    context: .
+      dockerfile: cypress/Dockerfile
+      args: # build time
+        - buildversion=1
     # container_name: cypress1
     command: --spec "cypress/integration/tricky/wait.js" --env "viewport=mobile"
     volumes:
       - ./cypress/results:/opt/cypress-demo/cypress/results
+    image: cypress-demo
 
   e2e_2:
     image: cypress-demo
