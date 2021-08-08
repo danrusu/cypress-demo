@@ -31,7 +31,7 @@ describe('Request validation', { retries: 1 }, () => {
     cy.request(`http://qatools.ro/testfiles/sportcar.json`)
       .its('body.availableColors')
       .should(availableColors =>
-        expect(availableColors[1], 'color at index 1').equals('red')
+        expect(availableColors[1], 'color at index 1').equals('red'),
       );
 
     //multiple assertions
@@ -41,7 +41,7 @@ describe('Request validation', { retries: 1 }, () => {
         expect(status, 'status code').to.equal(200);
         expect(duration, 'duration').lessThan(500);
         expect(body.engine.transmission.speedCount, 'speedCount').equals(6);
-      }
+      },
     );
   });
 });

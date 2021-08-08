@@ -3,6 +3,6 @@ Then(`Result should display {string}`, expectedResult => {
   cy.get('@url').should(
     'equal',
     'http://qatools.ro/calculate/appApi.html',
-    'check shared context'
+    'check shared context',
   );
 });

@@ -18,6 +18,6 @@ describe('Misc', { retries: 1, env: { SUITE_ENV_VAL: 100 } }, () => {
         languages: ['en', 'ro'],
       },
     },
-    () => console.log(JSON.stringify(Cypress.env(), null, 2))
+    () => console.log(JSON.stringify(Cypress.env(), null, 2)),
   );
 });

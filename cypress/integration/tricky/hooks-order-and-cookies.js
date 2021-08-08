@@ -1,11 +1,14 @@
-const logCookies = () => cy.getCookies().then(cookies => console.log(
-  `Cookies: ${JSON.stringify(cookies, null, 2)}`)
-);
+const logCookies = () =>
+  cy
+    .getCookies()
+    .then(cookies =>
+      console.log(`Cookies: ${JSON.stringify(cookies, null, 2)}`),
+    );
 
 const log = message => {
   cy.log(message);
   console.log(message);
-}
+};
 
 // console log for cookies changes
 // https://docs.cypress.io/api/cypress-api/cookies#Debug
@@ -37,13 +40,12 @@ describe('Cookie test 1', () => {
   beforeEach('BeforeEach 2', () => log('beforeEach 2'));
   before('Before 2', () => log('before 2'));
 
-
   it('Set a cookie', () => {
     console.log('Test 1: Set a cookie');
     cy.visit('http://qatools.ro');
     cy.setCookie('test1', '1111');
   });
-  
+
   it('Check cookies 1', () => {
     console.log('Test 2: Check cookies 1');
   });
@@ -79,7 +81,7 @@ describe('Cookie test 2', () => {
     log('afterEach 1');
     logCookies();
   });
- 
+
   it('Check cookies 1', () => {
     console.log('Test 1: Check cookies 1');
   });

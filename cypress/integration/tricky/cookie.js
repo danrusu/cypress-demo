@@ -5,7 +5,7 @@ describe('Cookie test', () => {
 
     const waitForCookie = (cookieName, timeout) => {
       cy.log(
-        `Wait ${timeout / 1000} seconds for cookie '${cookieName}' to exist`
+        `Wait ${timeout / 1000} seconds for cookie '${cookieName}' to exist`,
       );
       let count = 0;
       const wait = options => {
