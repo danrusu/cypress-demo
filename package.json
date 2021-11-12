@@ -7,13 +7,13 @@
     "test": "node runner.js",
     "cy:info": "cypress info",
     "cy:open": "cypress open --browser chrome",
-    "cy:run": "cypress run --browser chrome --headless --spec \"cypress/integration/calculate-test/*.spec.js\""
+    "cy:run": "cypress run --browser chrome --spec \"cypress/integration/calculate-test/*.spec.js\""
   },
   "keywords": [],
   "author": "qatools.ro",
   "license": "ISC",
   "dependencies": {
-    "cypress": "^7.3.0",
+    "cypress": "^9.0.0",
     "cypress-cucumber-preprocessor": "^4.1.0",
     "cypress-multi-reporters": "^1.5.0",
     "mocha": "^8.4.0",

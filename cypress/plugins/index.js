@@ -28,5 +28,13 @@ module.exports = (on, config) => {
       console.log(message);
       return null;
     },
+    asyncLog({ message, delay }) {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          console.log(`before resolving to ${message} (delay = ${delay})`);
+          resolve(message);
+        }, delay);
+      });
+    },
   });
 };
