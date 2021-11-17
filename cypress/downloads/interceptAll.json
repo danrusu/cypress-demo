@@ -1,0 +1,127 @@
+{
+  "qatools.ro": {
+    "urlParams": [
+      {
+        "firstNumber": "1",
+        "secondNumber": "2",
+        "operation": "2"
+      },
+      {
+        "firstNumber": "1",
+        "secondNumber": "2",
+        "operation": "2"
+      },
+      {
+        "firstNumber": "1",
+        "secondNumber": "2",
+        "operation": "2"
+      }
+    ],
+    "headers": [
+      {
+        "connection": "keep-alive",
+        "accept": "text/html,*/*",
+        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36",
+        "host": "qatools.ro"
+      },
+      {
+        "host": "qatools.ro",
+        "proxy-connection": "keep-alive",
+        "authorization": "Bearer 123456789_0",
+        "info": "user-email-0@yahoo.com",
+        "x-plmi": "1111",
+        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36",
+        "accept": "*/*",
+        "referer": "http://qatools.ro/demo/requests.html",
+        "accept-encoding": "gzip, deflate",
+        "accept-language": "en-GB,en-US;q=0.9,en;q=0.8"
+      },
+      {
+        "host": "qatools.ro",
+        "proxy-connection": "keep-alive",
+        "authorization": "Bearer 123456789_1",
+        "info": "user-email-1@yahoo.com",
+        "x-plmi": "1112",
+        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36",
+        "accept": "*/*",
+        "referer": "http://qatools.ro/demo/requests.html",
+        "accept-encoding": "gzip, deflate",
+        "accept-language": "en-GB,en-US;q=0.9,en;q=0.8"
+      },
+      {
+        "host": "qatools.ro",
+        "proxy-connection": "keep-alive",
+        "authorization": "Bearer 123456789_2",
+        "info": "user-email-2@yahoo.com",
+        "x-plmi": "1113",
+        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36",
+        "accept": "*/*",
+        "referer": "http://qatools.ro/demo/requests.html",
+        "accept-encoding": "gzip, deflate",
+        "accept-language": "en-GB,en-US;q=0.9,en;q=0.8"
+      }
+    ],
+    "bodies": []
+  },
+  "postman-echo.com": {
+    "urlParams": [],
+    "headers": [
+      {
+        "host": "postman-echo.com",
+        "connection": "keep-alive",
+        "content-length": "35",
+        "sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"96\", \"Google Chrome\";v=\"96\"",
+        "sec-ch-ua-mobile": "?0",
+        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36",
+        "sec-ch-ua-platform": "\"macOS\"",
+        "content-type": "text/plain;charset=UTF-8",
+        "accept": "*/*",
+        "sec-fetch-site": "cross-site",
+        "sec-fetch-mode": "no-cors",
+        "sec-fetch-dest": "empty",
+        "referer": "http://qatools.ro/",
+        "accept-encoding": "gzip, deflate, br",
+        "accept-language": "en-GB,en-US;q=0.9,en;q=0.8"
+      },
+      {
+        "host": "postman-echo.com",
+        "connection": "keep-alive",
+        "content-length": "35",
+        "sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"96\", \"Google Chrome\";v=\"96\"",
+        "sec-ch-ua-mobile": "?0",
+        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36",
+        "sec-ch-ua-platform": "\"macOS\"",
+        "content-type": "text/plain;charset=UTF-8",
+        "accept": "*/*",
+        "sec-fetch-site": "cross-site",
+        "sec-fetch-mode": "no-cors",
+        "sec-fetch-dest": "empty",
+        "referer": "http://qatools.ro/",
+        "accept-encoding": "gzip, deflate, br",
+        "accept-language": "en-GB,en-US;q=0.9,en;q=0.8"
+      },
+      {
+        "host": "postman-echo.com",
+        "connection": "keep-alive",
+        "content-length": "35",
+        "sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"96\", \"Google Chrome\";v=\"96\"",
+        "sec-ch-ua-mobile": "?0",
+        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36",
+        "sec-ch-ua-platform": "\"macOS\"",
+        "content-type": "text/plain;charset=UTF-8",
+        "accept": "*/*",
+        "sec-fetch-site": "cross-site",
+        "sec-fetch-mode": "no-cors",
+        "sec-fetch-dest": "empty",
+        "referer": "http://qatools.ro/",
+        "accept-encoding": "gzip, deflate, br",
+        "accept-language": "en-GB,en-US;q=0.9,en;q=0.8"
+      }
+    ],
+    "bodies": [
+      "{\"userId\":0,\"userName\":\"danrusu_0\"}",
+      "{\"userId\":1,\"userName\":\"danrusu_1\"}",
+      "{\"userId\":2,\"userName\":\"danrusu_2\"}"
+    ]
+  }
+}
