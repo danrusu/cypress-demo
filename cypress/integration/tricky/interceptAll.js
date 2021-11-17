@@ -21,7 +21,7 @@ describe('Environment variables test suite', () => {
     if (Object.keys(info).includes(domain)) {
       const currentDomain = info[domain];
       if (!isEmptyObject(value)) {
-        currentDomain[key] = [...currentDomain[key], value];
+        currentDomain[key].push(value);
       }
     } else {
       info[domain] = { urlParams: [], headers: [], bodies: [] };
