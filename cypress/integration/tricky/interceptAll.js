@@ -6,6 +6,9 @@ describe('Environment variables test suite', () => {
   const getDomains = requestsArray => [
     ...new Set(requestsArray.map(request => getDomain(request.url))),
   ];
+  const getUrls = requestsArray => [
+    ...new Set(requestsArray.map(request => request.url)),
+  ];
 
   const getSearchParams = url => {
     const searchParams = {};
@@ -57,10 +60,19 @@ describe('Environment variables test suite', () => {
     cy.log(`Intercepted ${interceptedRequests.length} requests`);
 
     cy.wrap(null).then(() => {
-      cy.log(`Domains: ${JSON.stringify(getDomains(interceptedRequests))}`);
+      const domainsInfo = `DOMAINS: ${JSON.stringify(
+        getDomains(interceptedRequests),
+      )}`;
+      cy.log(domainsInfo);
+      console.log(domainsInfo);
+
+      console.log(
+        `URLS: ${JSON.stringify(getUrls(interceptedRequests), null, 2)}`,
+      );
 
       const requestsInfo = getRequestsInfo(interceptedRequests);
-      console.log(JSON.stringify(requestsInfo, null, 2));
+
+      console.log(`REQUESTS INFO: ${JSON.stringify(requestsInfo, null, 2)}`);
 
       cy.writeFile(
         'cypress/downloads/interceptAll.json',

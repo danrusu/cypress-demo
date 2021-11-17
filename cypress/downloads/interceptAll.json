@@ -119,9 +119,9 @@
       }
     ],
     "bodies": [
-      "{\"userId\":2,\"userName\":\"danrusu_2\"}",
       "{\"userId\":0,\"userName\":\"danrusu_0\"}",
-      "{\"userId\":1,\"userName\":\"danrusu_1\"}"
+      "{\"userId\":1,\"userName\":\"danrusu_1\"}",
+      "{\"userId\":2,\"userName\":\"danrusu_2\"}"
     ]
   }
 }
