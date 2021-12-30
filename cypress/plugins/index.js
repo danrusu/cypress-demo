@@ -18,12 +18,22 @@
 
 const cucumber = require('cypress-cucumber-preprocessor').default;
 
+let shared = {};
+
 module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
   on('file:preprocessor', cucumber());
 
   on('task', {
+    share(obj) {
+      shared = { ...shared, ...obj };
+      console.log(`Shared globally: ${JSON.stringify(shared)}`);
+      return null;
+    },
+    getShared() {
+      return shared;
+    },
     logToTerminal(message) {
       console.log(message);
       return null;
