@@ -9,6 +9,11 @@ jobs:
     container: cypress/browsers:node14.17.0-chrome91-ff89
     name: cypress
 
+    strategy:
+      fail-fast: true
+      matrix: 
+        store: [gb, es]
+
     steps:
 
       - name: Checkout
@@ -21,4 +26,4 @@ jobs:
           browser: chrome
           spec: cypress/integration/tricky/env-test.js
         env:
-          CYPRESS_store: ${{ github.event.inputs.store }}
+          CYPRESS_store: ${{ matrix.store }}

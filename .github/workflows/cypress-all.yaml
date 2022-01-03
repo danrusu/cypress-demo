@@ -29,9 +29,9 @@ jobs:
     runs-on: ${{ github.event.inputs.os }}
     
     strategy:
+      fail-fast: true
       matrix:
         store: [gb, es]
-      fail-fast: true
     
     steps:
     
