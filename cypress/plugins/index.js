@@ -34,7 +34,7 @@ module.exports = (on, config) => {
     getShared() {
       return shared;
     },
-    logToTerminal(message) {
+    console(message) {
       console.log(message);
       return null;
     },
