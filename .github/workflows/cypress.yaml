@@ -1,0 +1,28 @@
+name: Cypress
+
+on: 
+  workflow_dispatch:
+    inputs:
+      store:
+        type: choice
+        description: store
+        required: true
+        options:
+          - 'gb'
+          - 'es'
+jobs:
+  cypress-run:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          browser: chrome
+          spec: cypress/integration/tricky/env-test.js
+        env:
+          store: ${{ github.event.inputs.store }}
+          
