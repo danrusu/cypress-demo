@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: danrusu/cypress-demo/action1@v1
+        uses: danrusu/cypress-demo/action1
         with:
           who-to-greet: 'Mona the Octocat'
       # Use the output from the `hello` step
