@@ -1,56 +1,27 @@
-name: Cypress Browsers Image
-
 on: 
   workflow_dispatch:
   
 jobs:
-  install:
-    runs-on: ubuntu-latest
-    container: cypress/browsers:node14.17.0-chrome91-ff89        
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
 
-      - name: Install dependencies
-        uses: cypress-io/github-action@v2
-        with:
-          runTests: false
-          build: npm ci
-
-      - name: Save build folder
-        uses: actions/upload-artifact@v2
-        with:
-          name: node_modules
-          if-no-files-found: error
-          path: node_modules
-
-  e2e-tests:
-    needs: install
+  e2e-tests: 
+    name:  ${{ matrix.store }}-test 
     runs-on: ubuntu-latest
     container: cypress/browsers:node14.17.0-chrome91-ff89
-    name: cypress
 
     strategy:
       fail-fast: true
       matrix: 
-        store: [gb]
+        store: [gb,es]
 
     steps:
 
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Download dependencies
-        uses: actions/download-artifact@v2
-        with:
-          name: node_modules
-          path: node_modules
-
+      
       - name: Cypress Tests
         id: cypres-tests
         uses: cypress-io/github-action@v2        
         with:
-          install: false
           browser: chrome
           spec: cypress/integration/tricky/env-test.js
         env:

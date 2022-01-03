@@ -25,11 +25,11 @@ on:
                 
 jobs:
   cypress-run:
-    name:  ${{ matrix.store }} | ${{ github.event.inputs.browser }} | ${{ github.event.inputs.os }}
+    name:  ${{ matrix.store }}-${{ github.event.inputs.browser }}-${{ github.event.inputs.os }}-test
     runs-on: ${{ github.event.inputs.os }}
     
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
         store: [gb, es]
     
