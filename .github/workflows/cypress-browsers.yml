@@ -1,0 +1,24 @@
+name: Cypress Browsers Image
+
+on: 
+  workflow_dispatch:
+  
+jobs:
+  e2e-tests:
+    runs-on: ubuntu-latest
+    container: cypress/browsers:node14.17.0-chrome91-ff89
+    name: cypress
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Cypress Tests
+        id: cypres-tests
+        uses: cypress-io/github-action@v2
+        with:
+          browser: chrome
+          spec: cypress/integration/tricky/env-test.js
+        env:
+          CYPRESS_store: ${{ github.event.inputs.store }}
