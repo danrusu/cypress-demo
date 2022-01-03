@@ -44,7 +44,7 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           browser: ${{ github.event.inputs.browser }}
-          spec: cypress/integration/tricky/SimpleCalculator.feature
+          spec: cypress/integration/SimpleCalculator.feature
         env:
           CYPRESS_store: ${{ matrix.store }}
           
