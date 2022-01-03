@@ -11,19 +11,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Save build folder
-        uses: actions/upload-artifact@v2
-        with:
-          name: node_modules
-          if-no-files-found: error
-          path: node_modules
-
       - name: Install dependencies
         uses: cypress-io/github-action@v2
         with:
           runTests: false
           build: npm ci
 
+      - name: Save build folder
+        uses: actions/upload-artifact@v2
+        with:
+          name: node_modules
+          if-no-files-found: error
+          path: node_modules
 
   e2e-tests:
     needs: install
