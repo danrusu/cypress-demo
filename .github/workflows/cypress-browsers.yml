@@ -26,7 +26,8 @@ jobs:
         uses: cypress-io/github-action@v2        
         with:
           install-command: |
-            npm install cypress-cucumber-preprocessor@4.2.0 mocha@9.1.1 mocha-junit-reporter@2.0.0
+            pwd 
+            ls -all
           browser: chrome
           command: |
             pwd
