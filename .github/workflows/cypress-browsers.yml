@@ -5,7 +5,20 @@ on:
   
 jobs:
 
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "BUILD PHASE"
+
+  install:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "INSTALL PHASE"
+    
+
   e2e-tests: 
+    needs: install
     name:  ${{ matrix.store }}-test 
     runs-on: ubuntu-latest
     #container: cypress/browsers:node14.17.0-chrome91-ff89
