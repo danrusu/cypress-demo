@@ -25,7 +25,7 @@ jobs:
         id: cypres-tests
         uses: cypress-io/github-action@v2        
         with:
-          install-command: npm ci
+          #install-command: npm ci
           browser: chrome
           command: |
             pwd
