@@ -20,12 +20,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      # - uses: actions/cache@v2
-      #   with:
-      #     path: |
-      #       ~/.cache/Cypress
-      #       node_modules
-      #     key: my-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cache/Cypress
+            node_modules
+          key: my-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
 
       - name: Install Dependencies
         run: npm install cypress-cucumber-preprocessor@4.2.0 mocha@9.1.1 mocha-junit-reporter@2.0.0 
