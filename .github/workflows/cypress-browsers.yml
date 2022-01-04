@@ -31,7 +31,11 @@ jobs:
       #   run: npm install cypress-cucumber-preprocessor@4.2.0
       
       - name: Cypress Tests
-        run: cypress run --env store=${{ matrix.store }} --spec cypress/integration/SimpleCalculator.feature
+        run: |
+          cypress run
+          --browser chrome
+          --env store=${{ matrix.store }} 
+          --spec cypress/integration/SimpleCalculator.feature
 
         # uses: cypress-io/github-action@v2   
         # with:  
