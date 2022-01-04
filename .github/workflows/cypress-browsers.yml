@@ -21,7 +21,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Install Dependencies
       - uses: actions/cache@v2
         with:
           path: |
@@ -29,7 +28,8 @@ jobs:
             node_modules
           key: my-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
 
-      - run: npm i cypress
+      - name: Install Dependencies
+        run: npm i cypress
       
       - name: Cypress Tests
         uses: cypress-io/github-action@v2   
