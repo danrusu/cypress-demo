@@ -8,28 +8,28 @@ jobs:
   e2e-tests: 
     name:  ${{ matrix.store }}-test 
     runs-on: ubuntu-latest
-    container: cypress/browsers:node14.17.0-chrome91-ff89
-    #container: cypress/included:9.2.0
+    #container: cypress/browsers:node14.17.0-chrome91-ff89
+    container: cypress/included:9.2.0
 
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix: 
-        store: [gb]
+        store: [gb, fr, de, ch, nl, es]
 
     steps:
 
       - name: Checkout
         uses: actions/checkout@v2
 
-      - uses: actions/cache@v2
-        with:
-          path: |
-            ~/.cache/Cypress
-            node_modules
-          key: my-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+      # - uses: actions/cache@v2
+      #   with:
+      #     path: |
+      #       ~/.cache/Cypress
+      #       node_modules
+      #     key: my-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
 
-      - name: Install Dependencies
-        run: npm i cypress@9.2.0
+      # - name: Install Dependencies
+      #   run: npm i cypress@9.2.0
       
       - name: Cypress Tests
         uses: cypress-io/github-action@v2   
