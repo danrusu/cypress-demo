@@ -20,17 +20,21 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v2
+
+      - name: Install Dependencies
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cache/Cypress
+            node_modules
+          key: my-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+
+      - run: npm i cypress
       
       - name: Cypress Tests
-        id: cypres-tests
-        uses: cypress-io/github-action@v2        
-        with:
-          install-command: |
-            ls
-          browser: chrome
-          command: |
-            pwd
-            ls -all
-          #spec: cypress/integration/tricky/env-test.js
+        uses: cypress-io/github-action@v2   
+        with:  
+          install: false
+          spec: cypress/integration/tricky/env-test.js
         env:
           CYPRESS_store: ${{ matrix.store }}
