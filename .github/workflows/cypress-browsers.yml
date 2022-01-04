@@ -32,8 +32,9 @@ jobs:
       
       - name: Cypress Tests
         run: |
-          cypress run
-          --browser chrome
+          cypress run 
+          --browser chrome 
+          --headed 
           --env store=${{ matrix.store }} 
           --spec cypress/integration/SimpleCalculator.feature
 
