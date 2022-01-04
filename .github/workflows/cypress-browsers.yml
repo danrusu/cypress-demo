@@ -1,4 +1,4 @@
-name: Cypress [Docker image]
+name: Cypress Docker
 
 on: 
   workflow_dispatch:
@@ -9,11 +9,12 @@ jobs:
     name:  ${{ matrix.store }}-test 
     runs-on: ubuntu-latest
     #container: cypress/browsers:node14.17.0-chrome91-ff89
+    container: cypress/included:9.2.0
 
     strategy:
       fail-fast: true
       matrix: 
-        store: [gb,es]
+        store: [gb]
 
     steps:
 
@@ -24,7 +25,10 @@ jobs:
         id: cypres-tests
         uses: cypress-io/github-action@v2        
         with:
+          install-command: |
+            npm install cypress-cucumber-preprocessor@4.2.0 mocha@9.1.1 mocha-junit-reporter@2.0.0
           browser: chrome
-          spec: cypress/integration/tricky/env-test.js
+          command: echo '@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@'
+          #spec: cypress/integration/tricky/env-test.js
         env:
           CYPRESS_store: ${{ matrix.store }}
