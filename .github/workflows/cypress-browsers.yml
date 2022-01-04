@@ -26,8 +26,7 @@ jobs:
         uses: cypress-io/github-action@v2        
         with:
           install-command: |
-            pwd \
-            ls -all
+            pwd && ls -all
           browser: chrome
           command: |
             pwd
