@@ -2,7 +2,7 @@
 #FROM danrusu/cypress-browsers
 FROM cypress/included:9.2.0
 
-WORKDIR /opt/cypress-demo
+WORKDIR /github/workspace
 
 COPY cypress/ ./cypress
 COPY cypress.json ./
