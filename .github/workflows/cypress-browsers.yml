@@ -9,6 +9,7 @@ jobs:
     name:  ${{ matrix.store }}-test 
     runs-on: ubuntu-latest
     container: cypress/included:9.2.0
+    timeout-minutes: 10
 
     strategy:
       fail-fast: false
