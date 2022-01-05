@@ -15,4 +15,5 @@ jobs:
         id: test
         uses: ./cypress
         with:
+          context: ..
           spec: 'Mona the Octocat'
