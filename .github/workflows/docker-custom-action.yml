@@ -10,10 +10,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - run: cp cypress/Dockerfile .
       - run: ls -a
       - name: Test
         id: test
-        uses: ./cypress
+        uses: ./
         with:
-          context: ..
-          spec: 'Mona the Octocat'
+          args: --spec cyperss/integration/tricky/cors.js
