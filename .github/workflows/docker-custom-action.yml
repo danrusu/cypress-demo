@@ -12,6 +12,6 @@ jobs:
         uses: actions/checkout@v2
       - name: Test
         id: test
-        uses: ./.github/actions/cypress@v1
+        uses: ./cypress
         with:
           spec: 'Mona the Octocat'
