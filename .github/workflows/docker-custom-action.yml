@@ -15,5 +15,5 @@ jobs:
       - name: Test
         id: test
         uses: ./
-        with:
-          args: --spec cyperss/integration/tricky/cors.js
+        # with:
+        #   args: --spec cypress/integration/tricky/cors.js
