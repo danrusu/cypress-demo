@@ -4,15 +4,12 @@ on:
   workflow_dispatch:
   
 jobs:
-  hello_world_job:
+  cypress-included:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: cypress
     steps:
       - name: Hello world action step
         id: hello
-        uses: danrusu/cypress-demo@v1
+        uses: danrusu/.github/actions/cypress@v1
         with:
-          who-to-greet: 'Mona the Octocat'
-      # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+          spec: 'Mona the Octocat'
