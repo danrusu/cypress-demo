@@ -27,8 +27,8 @@ jobs:
             node_modules
           key: my-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
 
-      # - name: Install Dependencies
-      #   run: npm install cypress-cucumber-preprocessor@4.2.0
+      - name: Install Dependencies
+        run: npm install cypress-cucumber-preprocessor@4.2.0
       
       - name: Cypress Tests
         run: |
