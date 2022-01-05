@@ -8,8 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     name: cypress
     steps:
-      - name: Hello world action step
-        id: hello
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Test
+        id: test
         uses: ./.github/actions/cypress@v1
         with:
           spec: 'Mona the Octocat'
