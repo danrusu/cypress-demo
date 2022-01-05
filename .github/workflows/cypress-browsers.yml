@@ -26,15 +26,11 @@ jobs:
             ~/.cache/Cypress
             node_modules
           key: my-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
-
-      - name: Install Dependencies
-        run: npm install cypress-cucumber-preprocessor@4.2.0
       
       - name: Cypress Tests
         run: |
           cypress run 
           --browser chrome 
-          --headed 
           --env store=${{ matrix.store }} 
           --spec cypress/integration/SimpleCalculator.feature
 
