@@ -10,6 +10,6 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: danrusu/.github/actions/cypress@v1
+        uses: ./.github/actions/cypress@v1
         with:
           spec: 'Mona the Octocat'
