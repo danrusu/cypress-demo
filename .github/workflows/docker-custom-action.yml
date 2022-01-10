@@ -5,6 +5,7 @@ on:
   
 jobs:
   cypress-included:
+    timeout-minutes: 30
     runs-on: ubuntu-latest
     name: cypress
     steps:

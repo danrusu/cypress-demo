@@ -25,6 +25,7 @@ on:
                 
 jobs:
   cypress-run:
+    timeout-minutes: 30
     name:  ${{ matrix.store }}-${{ github.event.inputs.browser }}-${{ github.event.inputs.os }}-test
     runs-on: ${{ github.event.inputs.os }}
     

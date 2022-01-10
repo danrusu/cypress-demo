@@ -33,6 +33,7 @@ on:
                 
 jobs:
   cypress-run:
+    timeout-minutes: 30
     name: E2E tests | ${{ github.event.inputs.os }} | ${{ github.event.inputs.browser }} | ${{ github.event.inputs.store }} | 
     runs-on: ${{ github.event.inputs.os }}
     steps:
