@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "web": "node server.js",
+    "web:demo": "docker-compose run cypress",
     "test": "node runner.js",
     "cy:info": "cypress info",
     "cy:open": "cypress open --browser chrome",
@@ -13,14 +15,15 @@
   "author": "qatools.ro",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.17.2"
+  },
+  "devDependencies": {
     "cypress": "^9.0.0",
     "cypress-cucumber-preprocessor": "^4.1.0",
     "cypress-multi-reporters": "^1.5.0",
     "mocha": "^8.4.0",
     "mocha-junit-reporter": "^2.0.0",
-    "mocha-multi-reporters": "^1.5.1"
-  },
-  "devDependencies": {
+    "mocha-multi-reporters": "^1.5.1",
     "eslint-plugin-cypress": "^2.11.2"
   },
   "cypress-cucumber-preprocessor": {
