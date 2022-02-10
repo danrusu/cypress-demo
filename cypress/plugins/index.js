@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+const mysqlClient = require('mysql');
 // ***********************************************************
 // This example plugins/index.js can be used to load plugins
 //
@@ -44,6 +45,33 @@ module.exports = (on, config) => {
           console.log(`before resolving to ${message} (delay = ${delay})`);
           resolve(message);
         }, delay);
+      });
+    },
+    ,
+
+    mysqlQuery({ host, user, password, database, port, query }) {
+      const connection = mysqlClient.createConnection({
+        host,
+        user,
+        password,
+        database,
+        port,
+      });
+
+      return new Promise((resolve, reject) => {
+        connection.connect((err) => {
+          if (err) {
+            reject(err);
+          }
+        });
+
+        connection.query(query, (error, results) => {
+          connection.end();
+          if (error) {
+            reject(error);
+          }
+          resolve(results);
+        });
       });
     },
   });

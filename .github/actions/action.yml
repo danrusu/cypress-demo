@@ -1,5 +1,5 @@
 name: Cypress Action
-description: 'cypress ncluded action'
+description: 'cypress included action'
 runs:
   using: 'docker'
   image: './cypress/Dockerfile'

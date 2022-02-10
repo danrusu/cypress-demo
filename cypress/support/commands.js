@@ -30,3 +30,9 @@ Cypress.Commands.add('console', message => {
 Cypress.Commands.add('share', obj => {
   cy.task('share', obj);
 });
+
+Cypress.Commands.add(
+  'mysqlQuery',
+  ({ host, user, password, database, port = 3306, query }) =>
+    cy.task('mysqlQuery', { host, user, password, database, port, query }),
+);
