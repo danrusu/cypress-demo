@@ -4,24 +4,28 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
+    "web:demo": "docker-compose run cypress",
     "test": "node runner.js",
     "cy:info": "cypress info",
     "cy:open": "cypress open --browser chrome",
-    "cy:run": "cypress run --browser chrome --headless --spec \"cypress/integration/calculate-test/*.spec.js\""
+    "cy:run": "cypress run --browser chrome --spec \"cypress/integration/calculate-test/*.spec.js\""
   },
   "keywords": [],
   "author": "qatools.ro",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "cypress": "^7.3.0",
-    "cypress-cucumber-preprocessor": "^4.1.0",
-    "cypress-multi-reporters": "^1.5.0",
-    "mocha": "^8.4.0",
-    "mocha-junit-reporter": "^2.0.0",
-    "mocha-multi-reporters": "^1.5.1"
+    "express": "^4.17.2"
   },
   "devDependencies": {
-    "eslint-plugin-cypress": "^2.11.2"
+    "cypress": "9.4.1",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "cypress-multi-reporters": "^1.5.0",
+    "eslint-plugin-cypress": "^2.12.1",
+    "mocha": "^9.2.0",
+    "mocha-junit-reporter": "^2.0.2",
+    "mocha-multi-reporters": "^1.5.1",
+    "mysql": "^2.18.1"
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true,

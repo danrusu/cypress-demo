@@ -1,0 +1,44 @@
+name: Cypress Docker
+
+on: 
+  workflow_dispatch:
+  
+jobs:
+    
+  e2e-tests: 
+    name:  ${{ matrix.store }}-test 
+    runs-on: ubuntu-latest
+    container: cypress/included:9.2.0
+    timeout-minutes: 10
+
+    strategy:
+      fail-fast: false
+      matrix: 
+        store: [gb]
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cache/Cypress
+            node_modules
+          key: my-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+      
+      - name: Cypress Tests
+        run: |
+          cypress run 
+          --browser chrome 
+          --env store=${{ matrix.store }} 
+          --spec cypress/integration/SimpleCalculator.feature
+
+        # uses: cypress-io/github-action@v2   
+        # with:  
+        #   install: false
+        #   spec: cypress/integration/SimpleCalculator.feature
+        # env:
+        #   CYPRESS_store: ${{ matrix.store }}
+          

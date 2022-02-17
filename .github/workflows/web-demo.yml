@@ -1,0 +1,12 @@
+name: Web Demo [docker-compose]
+on: workflow_dispatch
+jobs:
+  test:
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build
+        run: docker-compose build
+      - name: Test
+        run: docker-compose run cypress

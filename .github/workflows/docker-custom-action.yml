@@ -1,0 +1,20 @@
+name: Custom Docker Action
+
+on: 
+  workflow_dispatch:
+  
+jobs:
+  cypress-included:
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    name: cypress
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - run: cp cypress/Dockerfile .
+      - run: ls -a
+      - name: Test
+        id: test
+        uses: ./
+        # with:
+        #   args: --spec cypress/integration/tricky/cors.js

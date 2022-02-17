@@ -42,8 +42,8 @@ describe('Fixture demo test - qatools.ro calculateApp', { retries: 1 }, () => {
           });
 
           result().should('have.text', expectedResult);
-        }
+        },
       );
-    }
+    },
   );
 });

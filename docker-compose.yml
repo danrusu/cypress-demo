@@ -1,23 +1,18 @@
-version: "3.9"
+version: '3.7'
+
 services:
-  e2e-test:
-    image: danrusu/cypress-demo
+  web:
+    build:
+      context: .
+    ports:
+      - 1111
+
+  cypress:
     build:
       context: .
       dockerfile: cypress/Dockerfile
-      args: # build time
-        - buildversion=1
-    command: --spec "cypress/integration/tricky/cookie.js" --env "viewport=mobile"
-    ports:
-      - "3000"
-    environment: # run time
-      - VIEWPORT=mobile
-      - TEST_ID=1111
-      - STORE=GB
-    volumes:
-      - ./cypress/results:/opt/cypress-demo/cypress/results
-    networks:
-      - test-network
-networks:
-  test-network:
-    driver: bridge
+    depends_on:
+      - web
+    command: |
+      --config baseUrl=http://web:1111
+      --spec cypress/integration/web-demo/test.js

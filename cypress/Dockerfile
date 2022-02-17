@@ -1,22 +1,16 @@
-FROM cypress/browsers:node14.16.0-chrome89-ff86
+#FROM cypress/browsers:node14.17.0-chrome91-ff89
+#FROM danrusu/cypress-browsers
+FROM cypress/included:9.2.0
 
-WORKDIR /opt/cypress-demo
+WORKDIR /opt/tests
 
 COPY cypress/ ./cypress
 COPY cypress.json ./
 
 RUN npm install \
-  cypress@7.3.0 \
-  cypress-cucumber-preprocessor@4.1.0 \
+  cypress-cucumber-preprocessor@4.2.0 \
   mocha@8.4.0 \
   mocha-junit-reporter@2.0.0 \
   -S
 
-ENTRYPOINT [ "node_modules/.bin/cypress", \
-  "run", \
-  "--headless", \
-  "--browser", \
-  "chrome", \
-  "--env", \
-  "baseUrl=http://qatools.ro,viewport=desktop" \
-  ]
+# base image: ENTRYPOINT [ "cypress", "run" ]

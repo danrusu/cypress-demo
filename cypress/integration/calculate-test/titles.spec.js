@@ -30,7 +30,7 @@ describe('Test qatools.ro calculateApp', () => {
           appTitleText,
         ].map(normalizeText);
         expect(normalizedPageTitleText).to.equal(normalizedAppTitleText);
-      }
+      },
     );
   });
 });
