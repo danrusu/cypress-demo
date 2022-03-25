@@ -43,7 +43,7 @@ module.exports = (on, config) => {
             collection,
             reporters: 'html',
           },
-          function (err, summary) {
+          (err, summary) => {
             if (err) {
               reject(err);
             }
