@@ -36,3 +36,24 @@ Cypress.Commands.add(
   ({ host, user, password, database, port = 3306, query }) =>
     cy.task('mysqlQuery', { host, user, password, database, port, query }),
 );
+
+Cypress.Commands.add('postman', ({ collection, timeout }) =>
+  cy.task('postman', { collection }, { timeout }),
+);
+
+Cypress.Commands.add('verifyPostmanSummary', summary => {
+  console.log(`Postman summary:`);
+  console.log(summary);
+  const { failures } = summary.run;
+  if (failures.length > 0) {
+    throw new Error(
+      `Failures[${failures.length}  ]: ${JSON.stringify(
+        failures.map(failure => {
+          const { test, message } = failure.error;
+          const requestName = failure.source.name;
+          return { requestName, test, message };
+        }),
+      )}`,
+    );
+  }
+});

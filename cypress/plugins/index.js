@@ -18,6 +18,7 @@ const mysqlClient = require('mysql');
  */
 
 const cucumber = require('cypress-cucumber-preprocessor').default;
+const newman = require('newman');
 
 let shared = {};
 
@@ -35,6 +36,22 @@ module.exports = (on, config) => {
     getShared() {
       return shared;
     },
+    postman({ collection }) {
+      return new Promise((resolve, reject) => {
+        newman.run(
+          {
+            collection,
+            reporters: 'html',
+          },
+          function (err, summary) {
+            if (err) {
+              reject(err);
+            }
+            resolve(summary);
+          },
+        );
+      });
+    },
     console(message) {
       console.log(message);
       return null;
@@ -47,7 +64,6 @@ module.exports = (on, config) => {
         }, delay);
       });
     },
-    ,
 
     mysqlQuery({ host, user, password, database, port, query }) {
       const connection = mysqlClient.createConnection({
@@ -59,7 +75,7 @@ module.exports = (on, config) => {
       });
 
       return new Promise((resolve, reject) => {
-        connection.connect((err) => {
+        connection.connect(err => {
           if (err) {
             reject(err);
           }
