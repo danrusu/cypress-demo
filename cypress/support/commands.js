@@ -37,22 +37,37 @@ Cypress.Commands.add(
     cy.task('mysqlQuery', { host, user, password, database, port, query }),
 );
 
-Cypress.Commands.add('postman', ({ collection, timeout }) =>
-  cy.task('postman', { collection }, { timeout }),
+Cypress.Commands.add('postman', ({ postmanConfig, timeout }) =>
+  cy.task('postman', postmanConfig, { timeout }),
 );
 
+/* Failures format: 
+{ requestName: [
+    {
+      test, 
+      errorMessage
+    },
+    ... 
+  ], 
+  ...
+}
+*/
 Cypress.Commands.add('verifyPostmanSummary', summary => {
   console.log(`Postman summary:`);
   console.log(summary);
   const { failures } = summary.run;
   if (failures.length > 0) {
     throw new Error(
-      `Failures[${failures.length}  ]: ${JSON.stringify(
-        failures.map(failure => {
-          const { test, message } = failure.error;
+      `Failures[${failures.length}]: ${JSON.stringify(
+        failures.reduce((acc, failure) => {
+          const { test, message: errorMessage } = failure.error;
           const requestName = failure.source.name;
-          return { requestName, test, message };
-        }),
+          if (!acc[requestName]) {
+            acc[requestName] = [];
+          }
+          acc[requestName].push({ test, errorMessage });
+          return acc;
+        }, {}),
       )}`,
     );
   }

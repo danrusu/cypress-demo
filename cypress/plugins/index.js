@@ -36,20 +36,14 @@ module.exports = (on, config) => {
     getShared() {
       return shared;
     },
-    postman({ collection }) {
+    postman(postmanConfig) {
       return new Promise((resolve, reject) => {
-        newman.run(
-          {
-            collection,
-            reporters: 'html',
-          },
-          (err, summary) => {
-            if (err) {
-              reject(err);
-            }
-            resolve(summary);
-          },
-        );
+        newman.run(postmanConfig, (err, summary) => {
+          if (err) {
+            reject(err);
+          }
+          resolve(summary);
+        });
       });
     },
     console(message) {

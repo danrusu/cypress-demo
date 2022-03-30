@@ -8,8 +8,8 @@
     "web:demo": "docker-compose run cypress",
     "test": "node runner.js",
     "cy:info": "cypress info",
-    "cy:open": "cypress open --browser chrome",
-    "cy:run": "cypress run --browser chrome --spec \"cypress/integration/calculate-test/*.spec.js\""
+    "cyo": "cypress open --browser chrome",
+    "cy": "cypress run --browser chrome"
   },
   "keywords": [],
   "author": "qatools.ro",

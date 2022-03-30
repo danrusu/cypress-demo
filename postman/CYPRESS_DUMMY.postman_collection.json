@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "6909d888-c6c1-4ab3-91ae-f5fb8cb2aa14",
+		"_postman_id": "a5cefb2a-2dd7-4de2-a0d9-3969e51f29c7",
 		"name": "CYPRESS_DUMMY",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -153,7 +153,9 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							""
+							"pm.test('Response JSON has data property', () => {",
+							"  pm.expect(pm.response.json()).haveOwnProperty('data');",
+							"});"
 						],
 						"type": "text/javascript"
 					}
