@@ -31,6 +31,8 @@ Cypress.Commands.add('share', obj => {
   cy.task('share', obj);
 });
 
+Cypress.Commands.add('getShared', () => cy.task('getShared'));
+
 Cypress.Commands.add(
   'mysqlQuery',
   ({ host, user, password, database, port = 3306, query }) =>

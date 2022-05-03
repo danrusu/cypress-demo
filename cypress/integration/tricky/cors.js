@@ -20,7 +20,7 @@ describe('Multiple domains - shared ', () => {
 
   it('Set meeting', { baseUrl: 'https://go-gin-todo.herokuapp.com' }, () => {
     cy.visit('/');
-    cy.task('getShared').then(shared => {
+    cy.getShared().then(shared => {
       const typeFromShared = sharedKey => {
         cy.get(`#${sharedKey}`).should('be.visible').type(shared[sharedKey]);
       };
