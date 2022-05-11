@@ -22,6 +22,7 @@
 //
 //
 // -- This will overwrite an existing command --
+
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 Cypress.Commands.add('console', message => {
   cy.task('console', `@@@ ${message}`);
@@ -74,3 +75,7 @@ Cypress.Commands.add('verifyPostmanSummary', summary => {
     );
   }
 });
+
+Cypress.Commands.add('getFiles', (folderPath, orderBy = 'birthtimeMs') =>
+  cy.task('getFiles', { folderPath, orderBy }),
+);

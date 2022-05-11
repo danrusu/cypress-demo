@@ -20,6 +20,22 @@ const mysqlClient = require('mysql');
 const cucumber = require('cypress-cucumber-preprocessor').default;
 const newman = require('newman');
 
+const { readdir, stat } = require('fs/promises');
+// https://nodejs.org/api/fs.html#filehandlestatoptions
+// https://nodejs.org/api/fs.html#class-fsstats
+
+const getFiles = async (folderPath, orderBy) => {
+  const filesNames = await readdir(folderPath);
+  const filesInfo = [];
+  for (const fileName of filesNames) {
+    const stats = await stat(`${folderPath}/${fileName}`);
+    filesInfo.push({ fileName, stats });
+  }
+  return filesInfo
+    .sort((f1, f2) => (f1.stats[orderBy] < f2.stats[orderBy] ? 1 : -1))
+    .map(fileInfo => fileInfo.fileName);
+};
+
 let shared = {};
 
 module.exports = (on, config) => {
@@ -83,6 +99,10 @@ module.exports = (on, config) => {
           resolve(results);
         });
       });
+    },
+
+    getFiles({ folderPath, orderBy = 'birthtimeMs' }) {
+      return getFiles(folderPath, orderBy);
     },
   });
 };
