@@ -4,4 +4,10 @@ describe('Get files from folder', () => {
       cy.console(JSON.stringify(fileNames, null, 2));
     });
   });
+
+  it('Should get the last downloaded file', () => {
+    cy.task('getNewestFile', 'cypress/demo_downloads').then(newestFileName => {
+      expect(newestFileName).equal('downloaded_last.txt');
+    });
+  });
 });

@@ -36,6 +36,9 @@ const getFiles = async (folderPath, orderBy) => {
     .map(fileInfo => fileInfo.fileName);
 };
 
+const getNewestFile = async folderPath =>
+  (await getFiles(folderPath, 'birthtimeMs'))[0];
+
 let shared = {};
 
 module.exports = (on, config) => {
@@ -103,6 +106,10 @@ module.exports = (on, config) => {
 
     getFiles({ folderPath, orderBy = 'birthtimeMs' }) {
       return getFiles(folderPath, orderBy);
+    },
+
+    getNewestFile(folderPath) {
+      return getNewestFile(folderPath);
     },
   });
 };
